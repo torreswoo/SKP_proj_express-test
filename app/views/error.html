@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title><%-title %></title>
+	<link rel="stylesheet" href="/css/style.css">
+	<% if (ENV_DEVELOPMENT) { %>
+	<script src="http://localhost:35729/livereload.js"></script>
+	<% } %>
+
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="js/example.js"></script><!--GET, POST통신-->
+	<script src="js/DB_manager.js"></script><!--DB통신-->
+</head>
+
+<body>
+
+<!--통신방식 POST, GET -->
+	<h1>통신방식 POST, GET</h1>
+		<button id="get">GET</button>
+		<button id="post">POST</button>
+		<button id="put">PUT</button>
+		<button id="delete">DELETE</button><br>
+	<h2>input</h2>
+		<input id="name"/>
+		<input id="price"/>
+
+	<h2>output</h2>
+		<textarea id="output" disabled="disabled" cols="40" rows="5"></textarea><br><br><br>
+
+<!-- DB활용 -->
+
+	<h1>DB활용</h1>
+	<h2>SELECT</h2>
+		input user_cd : <input id="user_select"/><br>
+		output user_id<textarea id="output_select" disabled="disabled" cols="20" rows="1"></textarea>
+		<button id="db_select">SELECT user_cd</button><br><br>
+
+	<h2>INSERT</h2>
+		user_cd : <input id="user_cd"/><br>
+		user_id : <input id="user_id"/><br>
+		user_pwd : <input id="user_pwd"/><br>
+		user_type_cd : <input id="user_type_cd"/>
+		<button id="db_insert">INSERT</button><br><br>
+
+	<h2>DELETE</h2>
+		input user_cd : <input id="user_delete"/>
+		<button id="db_delete">DELETE</button><br><br>
+
+	<h2>UPDATE</h2>
+		input user_cd : <input id="user_update"/>
+		<button id="db_update">UPDATE</button><br><br>
+
+	
+</body>
+</html>
