@@ -2,25 +2,25 @@
 $(document).ready(function(){
 
 	// DB select
-	$('#db_select').click(function(){  // id
-		var user_cd = $('#user_select').val();// 값을 가져오기
-		
+	$('#login').click(function(){  // id
+		var user_id = $('#user_id').val();// 값을 가져오기
+		var user_pwd = $('#user_pwd').val();
 		$.ajax({
-			url: '/dbSelect?user_cd='+user_cd,//GET방식으로 URL에추가하기
+			url: '/login?user_id='+user_id,//GET방식으로 URL에추가하기
 			type: 'get', 
 			dataType:'text', 
 
 			success: function(data){
-				$('#output_select').val(data);
+				console.log(data);
 			}
 		});
 		console.log('end SELECT request');
 	});
 
 	// Sign up button listener
-	$('#signup').click(function(){  // id: get인 버튼의 이벤트처리		
+	$('#signup').click(function(){	
 		$.ajax({
-			url: '/signup',//GET방식으로 URL에추가하기
+			url: '/register',
 			type: 'post', 
 			dataType:'text', 
 			data:{

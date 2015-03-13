@@ -28,7 +28,7 @@ router.get('/', function (req, res, next) {
 
 
 //hyperlink to Login page
-router.get('/login', function (req, res, next) {
+router.get('/loginform', function (req, res, next) {
   var articles = [new Article(), new Article()];
 
     res.render('login', {
@@ -84,12 +84,11 @@ router.post('/users', function (req, res, next) {
 
 // DB 접근이 필요한 router
 // 1. select
-router.get('/dbSelect', function (req, res, next) {
-	var user_cd = req.param('user_cd');
-	var user_id;	
+router.get('/login', function (req, res, next) {
+	var user_id = req.param('user_id');
 	// user_cd로 DB에서 SELECT수핼
-	var sql = 'select * from User where User_Cd=?';
-	var query = connection.query(sql, [ user_cd ], 
+	var sql = 'select * from User where User_Id=?';
+	var query = connection.query(sql, [ user_id ], 
 		function (err, rows) {
 	    if(err){
 	        connection.release();
@@ -97,14 +96,13 @@ router.get('/dbSelect', function (req, res, next) {
 	    }
 	    console.log(rows);
 
-	    user_id = rows[0].User_Id; // rows[id] 접근!
-		res.send(user_id);
 	});
+	console.log(rows[0]);
 
 });
 
 // 2. insert
-router.post('/signup', function (req, res, next) {
+router.post('/register', function (req, res, next) {
 	var user_id = req.param('user_id');
 	var user_pwd = req.param('user_pwd');
 	var user_type_cd = req.param('user_type_cd');
@@ -120,6 +118,7 @@ router.post('/signup', function (req, res, next) {
 	    }
 	    console.log(rows);
   	});
+  	res.redirect('login');
 });
 
 // 3. delete
