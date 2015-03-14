@@ -48,6 +48,16 @@ router.get('/signup', function (req, res, next) {
     });
 });
 
+//hyperlink to Login page
+router.get('/main', function (req, res, next) {
+  var articles = [new Article(), new Article()];
+
+    res.render('main', {
+      title: 'Generator-Express MVC',
+      articles: articles
+    });
+});
+
 
 
 //추가된 router

@@ -58,16 +58,54 @@
             </li>
         </ul>
     </nav>
-
+    <!-- Navigation -->
+    <a id="menu-toggle-nyb" href="#" class="btn btn-dark btn-lg toggle-nyb"><i class="fa fa-user"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle-nyb"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top">Start Bootstrap</a>
+            </li>
+            <li>
+                <a href="#top">Home</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#services">Services</a>
+            </li>
+            <li>
+                <a href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
     <!-- Header -->
-    <header id="" class="header">
-        <div class="text-vertical-center">
-            <h1>CoursPick</h1>
-            <h3>Pick Your Course!</h3>
-            <br>
-            <a href="loginform" class="btn btn-dark btn-lg">Log In</a>
-            <a href="signup" class="btn btn-dark btn-lg">Sign Up</a>
-            <a href="main" class="btn btn-dark btn-lg">main</a>
+    <header id="top" class="header">
+        <div class="d3">
+            <div class="text-vertical-center">
+                <h1>D3 AREA</h1>
+            </div>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                <img src="/img/example.jpg" width="100%">
+                <h4 class="list-group-item-heading">Course Name</h4>
+                <p class="list-group-item-text">Description</p>
+            </a>
+            <a href="#" class="list-group-item active">
+                <img src="/img/example.jpg" width="100%">
+                <h4 class="list-group-item-heading">Course Name</h4>
+                <p class="list-group-item-text">Description</p>
+            </a>
+            <a href="#" class="list-group-item active">
+                <img src="/img/example.jpg" width="100%">
+                <h4 class="list-group-item-heading">Course Name</h4>
+                <p class="list-group-item-text">Description</p>
+            </a>
         </div>
     </header>
 
@@ -103,7 +141,7 @@
     <script src="/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script>
@@ -115,6 +153,11 @@
 
     // Opens the sidebar menu
     $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle-nyb").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
     });
