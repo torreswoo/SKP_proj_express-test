@@ -41,7 +41,7 @@ router.get('/loginform', function (req, res, next) {
 router.post('/login', function (req, res, next) {
 	var articles = [new Article(), new Article()];
 
-//	var user_id = req.param('user_id');
+//	var user_id = req.params('user_id');
 	// user_cd로 DB에서 SELECT수핼
 	// var sql = 'select * from User where User_Id=?';
 	// var query = connection.query(sql, [ user_id ], 
@@ -57,8 +57,8 @@ router.post('/login', function (req, res, next) {
 //	console.log(user_id);
 
 //	if( user_id == 'next'){
-//		console.log('equal id');
-		res.render('/main', {
+		console.log('equal id');
+		res.render('main', {
 	       	title: 'Generator-Express MVC',
 	       	articles: articles
 	    });
@@ -84,7 +84,7 @@ router.get('/signup', function (req, res, next) {
 });
 
 //hyperlink to Login page
-router.post('/main', function (req, res, next) {
+router.get('/main', function (req, res, next) {
 //	console.log('start /main');
 //  	res.render('index', { title: 'Express',name:'Terry' });
  // 	var user_id = req.param('user_id');
