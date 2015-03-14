@@ -29,18 +29,53 @@ router.get('/', function (req, res, next) {
 
 //hyperlink to Login page
 router.get('/loginform', function (req, res, next) {
-  var articles = [new Article(), new Article()];
 
+  	var articles = [new Article(), new Article()];
     res.render('login', {
       title: 'Generator-Express MVC',
       articles: articles
     });
+
 });
+
+router.post('/login', function (req, res, next) {
+	var articles = [new Article(), new Article()];
+
+//	var user_id = req.param('user_id');
+	// user_cd로 DB에서 SELECT수핼
+	// var sql = 'select * from User where User_Id=?';
+	// var query = connection.query(sql, [ user_id ], 
+	// 	function (err, rows) {
+	//     if(err){
+	//         connection.release();
+	//         throw err;
+	//     }
+	//     console.log(rows);
+
+	// });
+	// console.log(rows[0]);
+//	console.log(user_id);
+
+//	if( user_id == 'next'){
+//		console.log('equal id');
+		res.render('/main', {
+	       	title: 'Generator-Express MVC',
+	       	articles: articles
+	    });
+//	}
+
+ 	// res.render('main', {
+  //     title: 'Generator-Express MVC',
+  //     articles: articles
+  //   });
+
+});
+
 
 
 //hyperlink to Signup page
 router.get('/signup', function (req, res, next) {
-  var articles = [new Article(), new Article()];
+  	var articles = [new Article(), new Article()];
 
     res.render('signup', {
       title: 'Generator-Express MVC',
@@ -49,13 +84,21 @@ router.get('/signup', function (req, res, next) {
 });
 
 //hyperlink to Login page
-router.get('/main', function (req, res, next) {
-  var articles = [new Article(), new Article()];
+router.post('/main', function (req, res, next) {
+//	console.log('start /main');
+//  	res.render('index', { title: 'Express',name:'Terry' });
+ // 	var user_id = req.param('user_id');
+  	var articles = [new Article(), new Article()];
 
-    res.render('main', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
+  	console.log('start /main');
+
+ // 	if( user_id == 'next'){
+//		console.log('equal id');
+	    res.render('main', {
+	      title: 'Generator-Express MVC',
+	      articles: articles
+	    });
+//	}
 });
 
 
@@ -94,22 +137,30 @@ router.post('/users', function (req, res, next) {
 
 // DB 접근이 필요한 router
 // 1. select
-router.get('/login', function (req, res, next) {
-	var user_id = req.param('user_id');
-	// user_cd로 DB에서 SELECT수핼
-	var sql = 'select * from User where User_Id=?';
-	var query = connection.query(sql, [ user_id ], 
-		function (err, rows) {
-	    if(err){
-	        connection.release();
-	        throw err;
-	    }
-	    console.log(rows);
+// router.get('/login', function (req, res, next) {
+// 	var articles = [new Article(), new Article()];
 
-	});
-	console.log(rows[0]);
+// 	var user_id = req.param('user_id');
+// 	// user_cd로 DB에서 SELECT수핼
+// 	var sql = 'select * from User where User_Id=?';
+// 	var query = connection.query(sql, [ user_id ], 
+// 		function (err, rows) {
+// 	    if(err){
+// 	        connection.release();
+// 	        throw err;
+// 	    }
+// 	    console.log(rows);
 
-});
+// 	});
+// 	console.log(rows[0]);
+
+// //	res.redirect('/main');
+//  	res.render('main', {
+//       title: 'Generator-Express MVC',
+//       articles: articles
+//     });
+
+// });
 
 // 2. insert
 router.post('/register', function (req, res, next) {
@@ -117,18 +168,19 @@ router.post('/register', function (req, res, next) {
 	var user_pwd = req.param('user_pwd');
 	var user_type_cd = req.param('user_type_cd');
 
-	console.log('start insert');
+	console.log('start /register');
 	//// select 
-	var sql = 'insert into User(user_id, user_pwd, user_type_cd) VALUES(?, ?, ?)';
-	var query = connection.query(sql, [user_id, user_pwd, user_type_cd], 
-		function (err, rows) {
-	    if(err){
-	        connection.release();
-	        throw err;
-	    }
-	    console.log(rows);
-  	});
-  	res.redirect('login');
+	// var sql = 'insert into User(user_id, user_pwd, user_type_cd) VALUES(?, ?, ?)';
+	// var query = connection.query(sql, [user_id, user_pwd, user_type_cd], 
+	// 	function (err, rows) {
+	//     if(err){
+	//         connection.release();
+	//         throw err;
+	//     }
+	//     console.log(rows);
+ //  	});
+//  	res.redirect('login');
+  	res.redirect('/main');
 });
 
 // 3. delete
